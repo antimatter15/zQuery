@@ -20,7 +20,7 @@ function $(els){
           if(lastres[prop]){
             val = val.substr((lastres[prop]+'').length);
             els.forEach(function(el){
-              el[prop] += val;
+              el[prop] += ' '+val;
             })
           }else{
             els.forEach(function(el){
