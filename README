@@ -1,0 +1,31 @@
+Approximate Google Results Per Letter prepended to "Query"
+zQuery	20600
+iQuery	24000
+gQuery	49200
+bQuery	55100
+mQuery	63500
+wQuery	72500
+dQuery	75100
+hQuery	149000
+yQuery	150000
+oQuery	232000
+vQuery	256000
+nQuery	332000
+kQuery	356000
+lQuery	500000
+cQuery	537000
+eQuery	551000
+pQuery	636000
+rQuery	930000
+fQuery	1130000
+sQuery	1280000
+uQuery	1590000
+tQuery	1840000
+qQuery	2410000
+xQuery	6650000
+jQuery	12700000
+aQuery	37200000
+
+This project uses defineGetter/Object.defineProperty to make a jQuery-style (but more DOM oriented) API in under 1k.
+
+
