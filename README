@@ -26,6 +26,10 @@ xQuery	6650000
 jQuery	12700000
 aQuery	37200000
 
-This project uses defineGetter/Object.defineProperty to make a jQuery-style (but more DOM oriented) API in under 1k.
+This project uses defineGetter/Object.defineProperty to make a jQuery-style (but more like the DOM) API in under 1k (minified).
+
+Example:
+
+$('#magic a').className += ' link';
 
 
