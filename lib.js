@@ -1,7 +1,5 @@
-function $(selector){
-  var els = [].slice.call(document.querySelectorAll(selector), 0),
-      obj = {},
-      lastres = {},
+function $(els){
+  var lastres = {},
       getter = function(prop){
         return function(){
           return (lastres[prop] = ((typeof els[0][prop] == 'function') ?
@@ -31,11 +29,11 @@ function $(selector){
         }
       },
       addProp = function(alias, i){
-        if(obj.__defineGetter__){
-          obj.__defineGetter__(alias, getter(i));
-          obj.__defineSetter__ && obj.__defineSetter__(alias, setter(i));
+        if(els.__defineGetter__){
+          els.__defineGetter__(alias, getter(i));
+          els.__defineSetter__ && els.__defineSetter__(alias, setter(i));
         }else{
-          Object.defineProperty && Object.defineProperty(obj, alias, {
+          Object.defineProperty && Object.defineProperty(els, alias, {
             get: getter(i),
             set: setter(i)
           })
@@ -44,7 +42,19 @@ function $(selector){
       shorthand = {
         on: 'addEventListener'
       };
+  if(typeof selector == 'string'){
+    els = [].slice.call(document.querySelectorAll(els), 0)
+  }else if(els instanceof Element){
+    els = [els]
+  } //if it's an array, it'll slip through.
   for(var i in els[0]) addProp(i,i);
   for(var i in shorthand) addProp(i,shorthand[i]);
-  return obj;
+  els.find = function(sel){
+    var out = [];
+    els.forEach(function(el){
+      out = out.concat([].slice.call(el.querySelectorAll(sel), 0))
+    });
+    return $(out);
+  }
+  return els;
 }
