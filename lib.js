@@ -42,7 +42,7 @@ function $(els){
       shorthand = {
         on: 'addEventListener'
       };
-  if(typeof selector == 'string'){
+  if(typeof els == 'string'){
     els = [].slice.call(document.querySelectorAll(els), 0)
   }else if(els instanceof Element){
     els = [els]
