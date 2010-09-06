@@ -6,7 +6,7 @@ function $(els){
             function(){
               var argz = arguments;
               return els.map(function(el){
-                el[prop].apply(el, argz);
+                return el[prop].apply(el, argz);
               })
             } :
             els.map(function(el){
@@ -16,8 +16,9 @@ function $(els){
       },
       setter = function(prop){
         return function(val){
+          console.log(lastres);
           if(lastres[prop]){
-            val = val.substr((lastres+'').length);
+            val = val.substr((lastres[prop]+'').length);
             els.forEach(function(el){
               el[prop] += val;
             })
