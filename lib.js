@@ -2,6 +2,7 @@ function $(els){
   var lastres = {},
       getter = function(prop){
         return function(){
+          els[0].textContent && prop == 'innerText' (&& prop = 'textContent');
           return (lastres[prop] = ((typeof els[0][prop] == 'function') ?
             function(){
               var argz = arguments;
@@ -16,7 +17,7 @@ function $(els){
       },
       setter = function(prop){
         return function(val){
-          console.log(lastres);
+          els[0].textContent && prop == 'innerText' (&& prop = 'textContent');
           if(lastres[prop]){
             val = val.substr((lastres[prop]+'').length);
             els.forEach(function(el){

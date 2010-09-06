@@ -32,3 +32,4 @@ Example:
 
 $('#magic a').className += ' link';
 $('body').find('a').innerHTML
+$('body').textContent += 'blah' //works on firefox too!
